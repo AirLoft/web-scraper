@@ -1,4 +1,7 @@
-run `npm install` to install dependent modules, then run `nodemon` to start listening port 8081.
+run `npm install` to install dependent modules, then run `nodemon <filename>` to start listening port 3000.
+
+## Support media source
+douban(豆瓣), cnode
 
 ## Main idea
 
