@@ -7,6 +7,10 @@ var request = require('request');
 var cheerio = require('cheerio');
 var app = express();
 
+var noNewLine = function(char){
+  return char != '\n';
+}
+
 app.get('/', function(req, res){
   url = "https://cnodejs.org/?tab=good"; // cnode the good parts
   src = "https://cnodejs.org/";
@@ -22,7 +26,7 @@ app.get('/', function(req, res){
         var cell = {title: "", link: "", author: ""};
         var data = $(this).next();
         // sometimes we may need integer instead of pure string, use `parseInt()`.
-        cell.title = data.text();
+        cell.title = data.text().replace(/\s\s+/g, '');
         // obtain the value of an attribute by use `attr('ATTRNAME')`
         cell.link = src + data.attr('href');
         // or use .eq(i) to select element among children.
