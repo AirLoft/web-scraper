@@ -42,10 +42,15 @@ app.get('/', function(req, res){
       //   console.log("File successfully written!");
       // })
 
-      // res.send("check your console!");
-      res.writeHead(200);
-      res.write(html);
-      res.end();
+      var outputString = "";
+      for(var i=0; i<cellLst.length; i++){
+        outputString += JSON.stringify(cellLst[i]);
+      }
+
+      res.send("check your console!\n" + outputString);
+      // res.writeHead(200);
+      // res.write(html);
+      // res.end();
     }
   });
 
