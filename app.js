@@ -6,6 +6,7 @@ var request = require('request');
 var cheerio = require('cheerio');
 var app = express();
 var port = process.env.PORT || 3000;
+var html = fs.readFileSync('index.html');
 
 var noNewLine = function(char){
   return char != '\n';
