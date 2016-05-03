@@ -1,11 +1,11 @@
 // scape a specific info page from cnode/good.
 
-
 var express = require('express');
 var fs = require('fs');
 var request = require('request');
 var cheerio = require('cheerio');
 var app = express();
+var port = process.env.PORT || 3000;
 
 var noNewLine = function(char){
   return char != '\n';
@@ -41,12 +41,15 @@ app.get('/', function(req, res){
       //   console.log("File successfully written!");
       // })
 
-      res.send("check your console!");
+      // res.send("check your console!");
+      res.writeHead(200);
+      res.write(html);
+      res.end();
     }
   });
 
 
 })
 
-app.listen('3000');
+app.listen(port);
 module.exports = app;
